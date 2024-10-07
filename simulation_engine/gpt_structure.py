@@ -89,6 +89,34 @@ def gpt_request(prompt: str,
     return response.choices[0].message.content
   except Exception as e:
     return f"GENERATION ERROR: {str(e)}"
+  
+
+def gpt_request_messages(messages: List[dict],
+                model: str = "gpt-4o", 
+                max_tokens: int = 1500) -> str:
+  """Make a request to OpenAI's GPT model."""
+  if model == "o1-preview": 
+    try:
+      client = openai.OpenAI(api_key=OPENAI_API_KEY)
+      response = client.chat.completions.create(
+        model=model,
+        messages=messages
+      )
+      return response.choices[0].message.content
+    except Exception as e:
+      return f"GENERATION ERROR: {str(e)}"
+
+  try:
+    client = openai.OpenAI(api_key=OPENAI_API_KEY)
+    response = client.chat.completions.create(
+      model=model,
+      messages=messages,
+      max_tokens=max_tokens,
+      temperature=0.7
+    )
+    return response.choices[0].message.content
+  except Exception as e:
+    return f"GENERATION ERROR: {str(e)}"
 
 
 def gpt4_vision(messages: List[dict], max_tokens: int = 1500) -> str:
