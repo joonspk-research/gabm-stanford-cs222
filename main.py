@@ -36,8 +36,33 @@ def chat_session(generative_agent, stateless=False):
     print(f"{generative_agent.scratch.get_fullname()}: {response}")
 
 
+def build_agent(): 
+  curr_agent = GenerativeAgent("SyntheticCS222_Base", "matthew_jacobs")
+  for m in matthew_memories: 
+    curr_agent.remember(m)
+  curr_agent.save("SyntheticCS222", "matthew_jacobs")
+
+
+def interview_agent(): 
+  curr_agent = GenerativeAgent("SyntheticCS222", "matthew_jacobs")
+  chat_session(curr_agent, True)
+
+
+def chat_with_agent(): 
+  curr_agent = GenerativeAgent("SyntheticCS222", "matthew_jacobs")
+  chat_session(curr_agent, False)
+
+
+def ask_agent_to_reflect(): 
+  curr_agent = GenerativeAgent("SyntheticCS222", "matthew_jacobs")
+  curr_agent.reflect("Reflect on your goal in life")
+
+
 def main(): 
-  return 
+  build_agent()
+  interview_agent()
+  chat_with_agent()
+  ask_agent_to_reflect()
 
 
 if __name__ == '__main__':
