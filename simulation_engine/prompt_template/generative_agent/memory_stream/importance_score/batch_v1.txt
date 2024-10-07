@@ -1,0 +1,12 @@
+[Input]
+!<INPUT 0>!: Numbered list of observations for which we are generating the scores for. 
+
+[Output]
+Output format: Json dictionaries of the following format: 
+{
+"Item  1": <int importance score (range: 0 to 100) for item 1>,
+"Item  2": <int importance score (range: 0 to 100) for item 2>, ...
+}
+
+<commentblockmarker>###</commentblockmarker>
+[TODO]

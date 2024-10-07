@@ -1,0 +1,23 @@
+[Input]
+!<INPUT 0>!: Numbered list of observations
+!<INPUT 1>!: The number of  reflections we want to generate
+!<INPUT 2>!: Anchor
+
+[Output]
+Output format: Json dictionaries of the following format: 
+{
+  "reflection": [
+     "<fill in>"
+  ]
+}
+<commentblockmarker>###</commentblockmarker>
+!<INPUT 0>!
+---
+Task: Above are observations about a fictional human subject. Write one reflection (in first person voice, from the perspective of the subject) that you can infer from the observations above about the subject on the following anchoring topic/phrase: "!<INPUT 2>!". 
+
+Output format: Json dictionaries of the following format: 
+{
+  "reflection": [
+     "<fill in>"
+  ]
+}
